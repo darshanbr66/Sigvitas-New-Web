@@ -129,8 +129,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="
               mt-8
-              text-5xl
-              md:text-7xl
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              xl:text-7xl
               font-bold
               leading-[1.1]
               tracking-tight
@@ -181,8 +183,8 @@ const HeroSection = () => {
             className="
               mt-10
               flex
-              flex-col
-              sm:flex-row
+              items-start
+              sm:items-center
               gap-5
             "
           >
@@ -215,11 +217,13 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
             className="
-              mt-20
+              mt-16
               grid
               grid-cols-2
-              md:grid-cols-4
-              gap-10
+              lg:grid-cols-4
+              gap-8
+              md:gap-10
+            
             "
           >
 
