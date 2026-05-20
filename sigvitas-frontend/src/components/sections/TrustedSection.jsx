@@ -18,7 +18,7 @@ const TrustedSection = () => {
       border-white/5
       border-b
       border-white/5
-      bg-[#0f172a]
+      bg-white
     ">
 
       <Container>
@@ -33,7 +33,7 @@ const TrustedSection = () => {
         >
 
           <p className="
-            text-slate-400
+            text-slate-500
             uppercase
             tracking-[0.3em]
             text-sm
@@ -79,8 +79,8 @@ const TrustedSection = () => {
               >
 
                 <div className="
-                  text-slate-600
-                  hover:text-slate-300
+                  text-slate-400
+                  hover:text-slate-900
                   transition-all
                   duration-300
                   text-xl

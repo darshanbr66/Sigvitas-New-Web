@@ -40,7 +40,12 @@ const WhyChooseSection = () => {
 
             <SectionTitle
               subtitle="WHY CHOOSE US"
-              title="Modern Enterprise Solutions Designed For Growth"
+              title={
+                <span className="text-white">
+                  Modern Enterprise Solutions Designed For Growth
+                </span>
+              }
+              // title="Modern Enterprise Solutions Designed For Growth"
             />
 
           </div>

@@ -40,7 +40,12 @@ const TestimonialsSection = () => {
 
             <SectionTitle
               subtitle="CLIENT SUCCESS"
-              title="Trusted By Enterprises Worldwide"
+              title={
+                <span className="text-white">
+                  Trusted By Enterprises Worldwide
+                </span>
+              }
+              // title="Trusted By Enterprises Worldwide"
             />
 
           </div>

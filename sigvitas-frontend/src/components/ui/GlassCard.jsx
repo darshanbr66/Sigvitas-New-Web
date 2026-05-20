@@ -6,7 +6,7 @@ const GlassCard = ({
     <div
       className={`
         glass-card
-        rounded-3xl
+        rounded-[32px]
         p-6
         ${className}
       `}

@@ -30,7 +30,12 @@ const ServicesSection = () => {
         {/* Title */}
         <SectionTitle
           subtitle="OUR SERVICES"
-          title="Enterprise Solutions Built For The Future"
+          // title="Enterprise Solutions Built For The Future"
+          title={
+            <span className="text-white">
+              Enterprise Solutions Built For The Future
+            </span>
+          }
         />
 
         {/* Description */}

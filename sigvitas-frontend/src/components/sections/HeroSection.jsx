@@ -36,7 +36,7 @@ const HeroSection = () => {
           right-[-100px]
           w-[400px]
           h-[400px]
-          bg-cyan-500/20
+          bg-cyan-500/10
         "
       />
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
           left-[-100px]
           w-[500px]
           h-[500px]
-          bg-violet-500/20
+          bg-violet-500/10
         "
       />
 
@@ -139,7 +139,7 @@ const HeroSection = () => {
             "
           >
 
-            Building
+            Driving Innovation Through
 
             <span
               className="
@@ -148,11 +148,10 @@ const HeroSection = () => {
                 animate-[gradient_6s_ease_infinite]
               "
             >
-              {" "}Modern Digital{" "}
+              {" "}Technology, Research &{" "}
             </span>
 
-            Experiences For
-            Future Enterprises
+            Enterprise Intelligence
 
           </motion.h1>
 
@@ -170,9 +169,10 @@ const HeroSection = () => {
               max-w-3xl
             "
           >
-            Sigvitas delivers enterprise-grade consulting,
-            software engineering, and innovation solutions
-            that empower organizations to scale with confidence.
+            Sigvitas helps enterprises accelerate innovation,
+            optimize operations, and build future-ready
+            digital systems through strategic consulting,
+            technology solutions, and research-driven insights.
           </motion.p>
 
           {/* Buttons */}
@@ -230,20 +230,23 @@ const HeroSection = () => {
             {
               [
                 {
+                  number: "500+",
+                  label: "Innovation Projects",
+                },
+
+                {
+                  number: "25+",
+                  label: "Industry Domains",
+                },
+
+                {
+                  number: "95%",
+                  label: "Enterprise Retention",
+                },
+
+                {
                   number: "10+",
-                  label: "Enterprise Projects",
-                },
-                {
-                  number: "98%",
-                  label: "Client Satisfaction",
-                },
-                {
-                  number: "24/7",
-                  label: "Technical Support",
-                },
-                {
-                  number: "5+",
-                  label: "Technology Domains",
+                  label: "Research Capabilities",
                 },
               ].map((item) => (
 

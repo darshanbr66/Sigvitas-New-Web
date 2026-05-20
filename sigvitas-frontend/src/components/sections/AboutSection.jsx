@@ -61,7 +61,12 @@ const AboutSection = () => {
 
             <SectionTitle
               subtitle="ABOUT SIGVITAS"
-              title="Transforming Enterprises Through Modern Technology"
+              title={
+                <span className="text-white">
+                  Transforming Enterprises Through Modern Technology
+                </span>
+              }
+              // title="Transforming Enterprises Through Modern Technology"
             />
 
             <p className="

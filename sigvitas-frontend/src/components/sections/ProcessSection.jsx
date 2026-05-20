@@ -33,7 +33,12 @@ const ProcessSection = () => {
 
           <SectionTitle
             subtitle="OUR PROCESS"
-            title="A Structured Workflow For Digital Excellence"
+            title={
+                <span className="text-white">
+                  A Structured Workflow For Digital Excellence
+                </span>
+              }
+            // title="A Structured Workflow For Digital Excellence"
             center
           />
 
