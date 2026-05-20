@@ -1,0 +1,54 @@
+# ========================================
+# Root Level Ignores
+# ========================================
+node_modules/
+.DS_Store
+.env
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.out/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================================
+# sigvitas-frontend Project
+# ========================================
+ /sigvitas-frontend/node_modules/
+/sigvitas-frontend/dist/
+/sigvitas-frontend/build/
+/sigvitas-frontend/.env
+/sigvitas-frontend/.env.local
+/sigvitas-frontend/.env.development
+/sigvitas-frontend/.env.production
+/sigvitas-frontend/coverage/
+
+# ========================================
+# sigvitas-new Project
+# ========================================
+ /sigvitas-new/node_modules/
+/sigvitas-new/dist/
+/sigvitas-new/build/
+/sigvitas-new/.env
+/sigvitas-new/.env.local
+/sigvitas-new/.env.development
+/sigvitas-new/.env.production
+/sigvitas-new/coverage/
+
+# ========================================
+# Optional: If you want to ignore everything except these two folders
+# ========================================
+# *          # Uncomment this line to ignore everything by default
+# !/.gitignore
+# !/sigvitas-frontend/
+# !/sigvitas-new/
