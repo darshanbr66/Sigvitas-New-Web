@@ -4,6 +4,19 @@ import Container from "../ui/Container"
 import Button from "../ui/Button"
 import BackgroundGrid from "../ui/BackgroundGrid"
 import FloatingOrb from "../ui/FloatingOrb"
+{/*
+        Video
+        ↓
+        Dark Overlay
+        ↓
+        Gradient Overlay
+        ↓
+        Grid
+        ↓
+        Floating Orbs
+        ↓
+        Content
+*/}
 
 const HeroSection = () => {
   return (
@@ -17,6 +30,71 @@ const HeroSection = () => {
         items-center
       "
     >
+      {/* Background Video */}
+      <div className="
+        absolute
+        inset-0
+        overflow-hidden
+      ">
+
+        {/* <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            className="
+              absolute
+              inset-0
+              w-full
+              h-full
+              object-cover
+              z-0
+            "
+          >
+            <source
+              src={`${import.meta.env.BASE_URL}videos/hero-video.mp4`}
+              type="video/mp4"
+            />
+
+            Your browser does not support the video tag.
+          </video> */}
+
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="
+          w-full
+          h-full
+          object-cover
+          opacity-30
+          scale-[1.05]
+          animate-[slowZoom_20s_linear_infinite]
+        "
+      >
+        <source
+          src={`${import.meta.env.BASE_URL}videos/hero-video.mp4`}
+          type="video/mp4"
+        />
+      </video>
+
+      </div>
+
+      {/* Dark Overlay */}
+    <div className="
+      absolute
+      inset-0
+      bg-[#020617]/80
+    " />
+
+    {/* Gradient Overlay */}
+    <div className="
+      absolute
+      inset-0
+      bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.12),transparent_40%)]
+    " />
 
       {/* Background Grid */}
       <BackgroundGrid />
@@ -36,7 +114,7 @@ const HeroSection = () => {
           right-[-100px]
           w-[400px]
           h-[400px]
-          bg-cyan-500/10
+          bg-cyan-500/5
         "
       />
 
@@ -47,7 +125,7 @@ const HeroSection = () => {
           left-[-100px]
           w-[500px]
           h-[500px]
-          bg-violet-500/10
+          bg-violet-500/5
         "
       />
 

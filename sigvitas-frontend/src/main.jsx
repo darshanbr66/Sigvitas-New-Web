@@ -6,12 +6,20 @@ import "./index.css"
 
 import SmoothScroll from "./components/ui/SmoothScroll"
 
+import {
+  ThemeProvider,
+} from "./context/ThemeContext"
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
 
-    <SmoothScroll />
+    <ThemeProvider>
 
-    <App />
+      <SmoothScroll />
+
+      <App />
+
+    </ThemeProvider>
 
   </React.StrictMode>
 )

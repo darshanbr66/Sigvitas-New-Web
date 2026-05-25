@@ -5,30 +5,38 @@ import {
   HiX,
 } from "react-icons/hi"
 
-import { motion, AnimatePresence } from "framer-motion"
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion"
 
 import { Link } from "react-scroll"
 
 import Container from "../ui/Container"
 import Button from "../ui/Button"
+import ThemeToggle from "../ui/ThemeToggle"
 
 const navLinks = [
   {
     name: "Home",
     to: "hero",
   },
+
   {
     name: "Services",
     to: "services",
   },
+
   {
     name: "About",
     to: "about",
   },
+
   {
     name: "Process",
     to: "process",
   },
+
   {
     name: "Testimonials",
     to: "testimonials",
@@ -36,6 +44,7 @@ const navLinks = [
 ]
 
 const Navbar = () => {
+
   const [mobileMenu, setMobileMenu] = useState(false)
 
   const [scrolled, setScrolled] = useState(false)
@@ -43,7 +52,9 @@ const Navbar = () => {
   useEffect(() => {
 
     const handleScroll = () => {
+
       setScrolled(window.scrollY > 50)
+
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -69,7 +80,7 @@ const Navbar = () => {
 
         ${
           scrolled
-            ? "bg-[#0B1120]/90 backdrop-blur-xl border-b border-white/10"
+            ? "bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-lg border-b border-slate-200 dark:border-white/10"
             : "bg-transparent"
         }
       `}
@@ -95,6 +106,8 @@ const Navbar = () => {
               text-2xl
               font-bold
               tracking-wide
+              text-slate-900
+              dark:text-white
             "
           >
             SIGVITAS
@@ -118,14 +131,17 @@ const Navbar = () => {
                   spy
                   duration={700}
                   offset={-80}
-                  activeClass="text-white"
+                  activeClass="active-nav"
                   className="
                     cursor-pointer
-                    text-slate-400
-                    hover:text-white
+                    text-slate-500
+                    dark:text-slate-400
+                    hover:text-slate-900
+                    dark:hover:text-white
                     transition-all
                     duration-300
                     relative
+
                     after:absolute
                     after:left-0
                     after:-bottom-2
@@ -133,6 +149,7 @@ const Navbar = () => {
                     after:h-[2px]
                     after:bg-cyan-400
                     after:transition-all
+
                     hover:after:w-full
                   "
                 >
@@ -144,8 +161,15 @@ const Navbar = () => {
 
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:block">
+          {/* Desktop Right Side */}
+          <div className="
+            hidden
+            lg:flex
+            items-center
+            gap-4
+          ">
+
+            <ThemeToggle />
 
             <Button>
               Let’s Talk
@@ -153,12 +177,16 @@ const Navbar = () => {
 
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenu(!mobileMenu)}
+            onClick={() =>
+              setMobileMenu(!mobileMenu)
+            }
             className="
               lg:hidden
               text-3xl
+              text-slate-900
+              dark:text-white
             "
           >
 
@@ -181,16 +209,33 @@ const Navbar = () => {
           mobileMenu && (
 
             <motion.div
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.3 }}
+              initial={{
+                opacity: 0,
+                y: -30,
+              }}
+
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              exit={{
+                opacity: 0,
+                y: -30,
+              }}
+
+              transition={{
+                duration: 0.3,
+              }}
+
               className="
                 lg:hidden
                 border-t
-                border-white/10
-                bg-[#0B1120]/95
-                backdrop-blur-xl
+                border-slate-200
+                dark:border-white/10
+                bg-white/95
+                dark:bg-[#0B1120]/95
+                backdrop-blur-lg
               "
             >
 
@@ -203,6 +248,7 @@ const Navbar = () => {
                   gap-8
                 ">
 
+                  {/* Mobile Links */}
                   {
                     navLinks.map((item) => (
 
@@ -212,12 +258,20 @@ const Navbar = () => {
                         smooth
                         duration={700}
                         offset={-80}
-                        onClick={() => setMobileMenu(false)}
+
+                        onClick={() =>
+                          setMobileMenu(false)
+                        }
+
+                        activeClass="active-nav"
+
                         className="
                           cursor-pointer
                           text-lg
-                          text-slate-300
-                          hover:text-white
+                          text-slate-600
+                          dark:text-slate-300
+                          hover:text-slate-900
+                          dark:hover:text-white
                           transition
                         "
                       >
@@ -227,8 +281,18 @@ const Navbar = () => {
                     ))
                   }
 
+                  {/* Theme Toggle */}
+                  <div className="pt-2">
+
+                    <ThemeToggle />
+
+                  </div>
+
+                  {/* Mobile CTA */}
                   <Button className="w-full">
+
                     Let’s Talk
+
                   </Button>
 
                 </div>

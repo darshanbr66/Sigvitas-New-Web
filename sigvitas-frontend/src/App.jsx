@@ -15,6 +15,7 @@ import ProcessSection from "./components/sections/ProcessSection"
 import TestimonialsSection from "./components/sections/TestimonialsSection"
 import PublicationsSection from "./components/sections/PublicationsSection"
 import CTASection from "./components/sections/CTASection"
+import ContactSection from "./components/sections/ContactSection"
 
 import ScrollProgress from "./components/ui/ScrollProgress"
 
@@ -51,6 +52,8 @@ function App() {
       <TestimonialsSection />
 
       <PublicationsSection />
+
+      <ContactSection />
 
       <CTASection />
 
