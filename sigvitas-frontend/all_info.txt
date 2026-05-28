@@ -1,0 +1,5 @@
+public/images/about-team.jpg
+public/images/case-study-1.jpg
+public/images/case-study-2.jpg
+public/images/leadership-1.jpg
+public/images/publication-1.jpg

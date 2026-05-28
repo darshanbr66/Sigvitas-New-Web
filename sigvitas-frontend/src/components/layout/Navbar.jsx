@@ -10,36 +10,44 @@ import {
   AnimatePresence,
 } from "framer-motion"
 
-import { Link } from "react-scroll"
+import {
+  NavLink,
+} from "react-router-dom"
 
 import Container from "../ui/Container"
 import Button from "../ui/Button"
-import ThemeToggle from "../ui/ThemeToggle"
 
 const navLinks = [
   {
     name: "Home",
-    to: "hero",
-  },
-
-  {
-    name: "Services",
-    to: "services",
+    path: "/",
   },
 
   {
     name: "About",
-    to: "about",
+    path: "/about",
   },
 
   {
-    name: "Process",
-    to: "process",
+    name: "Services",
+    path: "/services",
   },
 
   {
-    name: "Testimonials",
-    to: "testimonials",
+    name: "Contact",
+    path: "/contact",
+  },
+  {
+    name: "Insights",
+    path: "/insights",
+  },
+  {
+    name: "Case Studies",
+    path: "/case-studies",
+  },
+  {
+    name: "Careers",
+    path: "/careers",
   },
 ]
 
@@ -80,7 +88,7 @@ const Navbar = () => {
 
         ${
           scrolled
-            ? "bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-lg border-b border-slate-200 dark:border-white/10"
+            ? "bg-[#020617]/90 backdrop-blur-lg border-b border-white/10"
             : "bg-transparent"
         }
       `}
@@ -97,21 +105,18 @@ const Navbar = () => {
         ">
 
           {/* Logo */}
-          <Link
-            to="hero"
-            smooth
-            duration={700}
+          <NavLink
+            to="/"
             className="
               cursor-pointer
               text-2xl
               font-bold
               tracking-wide
-              text-slate-900
-              dark:text-white
+              text-white
             "
           >
             SIGVITAS
-          </Link>
+          </NavLink>
 
           {/* Desktop Navigation */}
           <nav className="
@@ -124,52 +129,46 @@ const Navbar = () => {
             {
               navLinks.map((item) => (
 
-                <Link
+                <NavLink
                   key={item.name}
-                  to={item.to}
-                  smooth
-                  spy
-                  duration={700}
-                  offset={-80}
-                  activeClass="active-nav"
-                  className="
+                  to={item.path}
+
+                  className={({ isActive }) => `
                     cursor-pointer
-                    text-slate-500
-                    dark:text-slate-400
-                    hover:text-slate-900
-                    dark:hover:text-white
                     transition-all
                     duration-300
                     relative
 
+                    ${
+                      isActive
+                        ? "text-white"
+                        : "text-slate-400 hover:text-white"
+                    }
+
                     after:absolute
                     after:left-0
                     after:-bottom-2
-                    after:w-0
                     after:h-[2px]
                     after:bg-cyan-400
                     after:transition-all
 
-                    hover:after:w-full
-                  "
+                    ${
+                      isActive
+                        ? "after:w-full"
+                        : "after:w-0 hover:after:w-full"
+                    }
+                  `}
                 >
                   {item.name}
-                </Link>
+                </NavLink>
 
               ))
             }
 
           </nav>
 
-          {/* Desktop Right Side */}
-          <div className="
-            hidden
-            lg:flex
-            items-center
-            gap-4
-          ">
-
-            <ThemeToggle />
+          {/* Desktop CTA */}
+          <div className="hidden lg:block">
 
             <Button>
               Let’s Talk
@@ -185,8 +184,7 @@ const Navbar = () => {
             className="
               lg:hidden
               text-3xl
-              text-slate-900
-              dark:text-white
+              text-white
             "
           >
 
@@ -231,10 +229,8 @@ const Navbar = () => {
               className="
                 lg:hidden
                 border-t
-                border-slate-200
-                dark:border-white/10
-                bg-white/95
-                dark:bg-[#0B1120]/95
+                border-white/10
+                bg-[#020617]/95
                 backdrop-blur-lg
               "
             >
@@ -248,45 +244,34 @@ const Navbar = () => {
                   gap-8
                 ">
 
-                  {/* Mobile Links */}
                   {
                     navLinks.map((item) => (
 
-                      <Link
+                      <NavLink
                         key={item.name}
-                        to={item.to}
-                        smooth
-                        duration={700}
-                        offset={-80}
+                        to={item.path}
 
                         onClick={() =>
                           setMobileMenu(false)
                         }
 
-                        activeClass="active-nav"
-
-                        className="
+                        className={({ isActive }) => `
                           cursor-pointer
                           text-lg
-                          text-slate-600
-                          dark:text-slate-300
-                          hover:text-slate-900
-                          dark:hover:text-white
                           transition
-                        "
+
+                          ${
+                            isActive
+                              ? "text-white"
+                              : "text-slate-300 hover:text-white"
+                          }
+                        `}
                       >
                         {item.name}
-                      </Link>
+                      </NavLink>
 
                     ))
                   }
-
-                  {/* Theme Toggle */}
-                  <div className="pt-2">
-
-                    <ThemeToggle />
-
-                  </div>
 
                   {/* Mobile CTA */}
                   <Button className="w-full">

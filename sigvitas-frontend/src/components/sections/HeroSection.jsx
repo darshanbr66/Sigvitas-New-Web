@@ -4,19 +4,7 @@ import Container from "../ui/Container"
 import Button from "../ui/Button"
 import BackgroundGrid from "../ui/BackgroundGrid"
 import FloatingOrb from "../ui/FloatingOrb"
-{/*
-        Video
-        ↓
-        Dark Overlay
-        ↓
-        Gradient Overlay
-        ↓
-        Grid
-        ↓
-        Floating Orbs
-        ↓
-        Content
-*/}
+import ParallaxSection from "../ui/ParallaxSection"
 
 const HeroSection = () => {
   return (
@@ -28,82 +16,68 @@ const HeroSection = () => {
         min-h-screen
         flex
         items-center
+        bg-[#020617]
+        text-white
       "
     >
+
       {/* Background Video */}
       <div className="
         absolute
         inset-0
         overflow-hidden
+        z-0
       ">
 
-        {/* <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            className="
-              absolute
-              inset-0
-              w-full
-              h-full
-              object-cover
-              z-0
-            "
-          >
-            <source
-              src={`${import.meta.env.BASE_URL}videos/hero-video.mp4`}
-              type="video/mp4"
-            />
-
-            Your browser does not support the video tag.
-          </video> */}
-
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="
-          w-full
-          h-full
-          object-cover
-          opacity-30
-          scale-[1.05]
-          animate-[slowZoom_20s_linear_infinite]
-        "
-      >
-        <source
-          src={`${import.meta.env.BASE_URL}videos/hero-video.mp4`}
-          type="video/mp4"
-        />
-      </video>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="
+            w-full
+            h-full
+            object-cover
+            opacity-20
+            scale-[1.05]
+            animate-[slowZoom_20s_linear_infinite]
+          "
+        >
+          <source
+            src={`${import.meta.env.BASE_URL}videos/hero-video.mp4`}
+            type="video/mp4"
+          />
+        </video>
 
       </div>
 
       {/* Dark Overlay */}
-    <div className="
-      absolute
-      inset-0
-      bg-[#020617]/80
-    " />
-
-    {/* Gradient Overlay */}
-    <div className="
-      absolute
-      inset-0
-      bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.12),transparent_40%)]
-    " />
-
-      {/* Background Grid */}
-      <BackgroundGrid />
-
-      {/* Spotlight Effect */}
       <div className="
         absolute
         inset-0
-        bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.15),transparent_40%)]
+        bg-[#020617]/80
+        z-[1]
+      " />
+
+      {/* Gradient Overlay */}
+      <div className="
+        absolute
+        inset-0
+        z-[2]
+        bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.12),transparent_40%)]
+      " />
+
+      {/* Background Grid */}
+      <div className="z-[3]">
+        <BackgroundGrid />
+      </div>
+
+      {/* Spotlight */}
+      <div className="
+        absolute
+        inset-0
+        z-[4]
+        bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.08),transparent_40%)]
       " />
 
       {/* Floating Orbs */}
@@ -136,16 +110,21 @@ const HeroSection = () => {
           left-[40%]
           w-[300px]
           h-[300px]
-          bg-blue-500/10
+          bg-blue-500/5
         "
       />
 
+      <ParallaxSection offset={120}>
+
+      {/* Content */}
       <Container>
 
         <div className="
           relative
           z-10
-          max-w-5xl
+          max-w-4xl
+          pt-44
+          md:pt-52
         ">
 
           {/* Small Label */}
@@ -156,9 +135,7 @@ const HeroSection = () => {
           >
 
             <motion.div
-              whileHover={{
-                scale: 1.05,
-              }}
+              whileHover={{ scale: 1.03 }}
               className="
                 inline-flex
                 items-center
@@ -171,9 +148,7 @@ const HeroSection = () => {
                 bg-white/[0.04]
                 text-sm
                 text-slate-300
-                backdrop-blur-xl
-                shadow-lg
-                shadow-cyan-500/5
+                backdrop-blur-lg
               "
             >
 
@@ -204,7 +179,10 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+            }}
             className="
               mt-8
               text-4xl
@@ -237,7 +215,10 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+            }}
             className="
               mt-8
               text-lg
@@ -257,12 +238,15 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.6,
+            }}
             className="
               mt-10
               flex
-              items-start
-              sm:items-center
+              flex-wrap
+              items-center
               gap-5
             "
           >
@@ -278,9 +262,9 @@ const HeroSection = () => {
                 rounded-xl
                 border
                 border-white/10
-                bg-white/5
-                hover:bg-white/10
-                transition
+                bg-white/[0.04]
+                hover:bg-white/[0.08]
+                transition-all
                 duration-300
               "
             >
@@ -293,7 +277,10 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{
+              duration: 1,
+              delay: 0.8,
+            }}
             className="
               mt-16
               grid
@@ -301,7 +288,6 @@ const HeroSection = () => {
               lg:grid-cols-4
               gap-8
               md:gap-10
-            
             "
           >
 
@@ -326,6 +312,7 @@ const HeroSection = () => {
                   number: "10+",
                   label: "Research Capabilities",
                 },
+
               ].map((item) => (
 
                 <div key={item.label}>
@@ -342,8 +329,11 @@ const HeroSection = () => {
 
                   <p
                     className="
-                      mt-2
-                      text-slate-400
+                      mt-3
+                      text-sm
+                      uppercase
+                      tracking-[0.15em]
+                      text-slate-500
                     "
                   >
                     {item.label}
@@ -359,6 +349,20 @@ const HeroSection = () => {
         </div>
 
       </Container>
+
+      </ParallaxSection>
+
+      {/* Bottom Fade */}
+      <div className="
+        absolute
+        bottom-0
+        left-0
+        w-full
+        h-40
+        bg-gradient-to-t
+        from-[#020617]
+        to-transparent
+      " />
 
     </section>
   )

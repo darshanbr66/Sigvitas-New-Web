@@ -1,21 +1,25 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 
+import MouseGlow from "../ui/MouseGlow"
+
 const MainLayout = ({ children }) => {
   return (
-    <div className="
-      bg-[#0B1120]
-      text-white
-      overflow-hidden
-    ">
+    <>
+
+      <MouseGlow />
+
       <Navbar />
 
-      <main className="pt-20">
+      <main>
+
         {children}
+
       </main>
 
       <Footer />
-    </div>
+
+    </>
   )
 }
 

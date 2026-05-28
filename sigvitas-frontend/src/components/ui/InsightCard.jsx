@@ -1,94 +1,82 @@
 import { motion } from "framer-motion"
 
-const InsightCard = ({
-  category,
-  title,
-  description,
-  index,
+const GlassCard = ({
+  children,
+  className = "",
+  hover = true,
+  delay = 0,
 }) => {
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
+
+      initial={{
+        opacity: 0,
+        y: 40,
       }}
-      viewport={{ once: true }}
-      className="
-        group
-        rounded-[32px]
+
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        duration: 0.6,
+        delay,
+      }}
+
+      viewport={{
+        once: true,
+      }}
+
+      whileHover={
+        hover
+          ? {
+              y: -10,
+            }
+          : {}
+      }
+
+      className={`
+        relative
+        overflow-hidden
+
+        rounded-3xl
+
         border
-        border-slate-200
-        bg-white
-        p-8
-        hover:border-cyan-400
+        border-white/10
+
+        bg-white/[0.03]
+
+        backdrop-blur-xl
+
         transition-all
-        duration-300
-      "
+        duration-500
+
+        hover:border-cyan-400/20
+
+        ${className}
+      `}
     >
 
-      {/* Category */}
+      {/* Glow */}
       <div className="
-        inline-flex
-        items-center
-        rounded-full
-        bg-slate-100
-        px-4
-        py-2
-        text-sm
-        font-medium
-        text-slate-600
-      ">
-        {category}
-      </div>
+        absolute
+        inset-0
+        opacity-0
+        hover:opacity-100
+        transition-opacity
+        duration-500
+        bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.08),transparent_50%)]
+      " />
 
-      {/* Title */}
-      <h3 className="
-        mt-8
-        text-3xl
-        font-bold
-        leading-snug
-        text-slate-900
-        group-hover:text-cyan-600
-        transition-colors
-      ">
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p className="
-        mt-6
-        text-slate-600
-        leading-relaxed
-        text-lg
-      ">
-        {description}
-      </p>
-
-      {/* Footer */}
+      {/* Content */}
       <div className="
-        mt-10
-        flex
-        items-center
-        justify-between
+        relative
+        z-10
       ">
 
-        <span className="
-          text-slate-500
-          font-medium
-        ">
-          Read Insight
-        </span>
-
-        <span className="
-          text-2xl
-          text-cyan-500
-          group-hover:translate-x-2
-          transition-transform
-        ">
-          →
-        </span>
+        {children}
 
       </div>
 
@@ -96,4 +84,4 @@ const InsightCard = ({
   )
 }
 
-export default InsightCard
+export default GlassCard

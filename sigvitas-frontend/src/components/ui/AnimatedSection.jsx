@@ -1,12 +1,11 @@
 import { motion } from "framer-motion"
 
-const Reveal = ({
+const AnimatedSection = ({
   children,
   className = "",
   delay = 0,
-  duration = 0.8,
-  y = 60,
-  blur = true,
+  duration = 0.7,
+  y = 40,
   once = true,
 }) => {
 
@@ -16,26 +15,20 @@ const Reveal = ({
       initial={{
         opacity: 0,
         y,
-        filter: blur
-          ? "blur(10px)"
-          : "blur(0px)",
       }}
 
       whileInView={{
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
       }}
 
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1],
       }}
 
       viewport={{
         once,
-        amount: 0.2,
       }}
 
       className={className}
@@ -47,4 +40,4 @@ const Reveal = ({
   )
 }
 
-export default Reveal
+export default AnimatedSection
